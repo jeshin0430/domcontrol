@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count</title>
+</head>
+<body>
+    <div class="box">
+        <h1>글자 수 세기</h1>
+        <input type="text" id="input" style="text-align:center; width:500px; height:200px;"/>
+        <p>공백포함 글자 수: <span class="include"></span> </p>
+        <p>공백제외 글자 수: <span class="exclude"></span> </p>
+        
+    </div>
+    <script>
+        const include = document.querySelector(".include");
+        const exclude = document.querySelector(".exclude");
+        const text = document.querySelector("input");
+
+        function onKeyDown(event) {
+            let inputValue = "";
+            inputValue = event.target.value;
+            include.textContent = `${inputValue.length}`;
+            exclude.textContent = `${inputValue.replace(/(\s*)/g, "").length}`;
+        }
+        text.addEventListener("keydown", onKeyDown);
+    </script>
+</body>
+</html>
